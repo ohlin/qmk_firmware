@@ -30,7 +30,9 @@ enum layers {
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define OPT_ENT  MT(MOD_LALT, KC_ENT)
 #define SFT_SPC  MT(MOD_LSFT, KC_SPC)
-#define YTC      LOPT(KC_C)
+#define YTC      LOPT(KC_X)
+#define YTSD     LSA(KC_LT)
+#define YTSU     LSA(KC_GT)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -44,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.                   ,-------------+------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |  ' " | Hyper|                   | Hyper|  ` ~ |   N  |   M  | ,  < | . >  |  / ? | LClick |
  * `----------------------+------+------+------+------+------|                   |------+------+------+------+------+----------------------'
- *                        |      | LCMD | LOPT/|Shift/| Lower|                   | Raise|Shift/| Bcksp| RCMD |Scroll|
+ *                        |Scroll| LCMD | LOPT/|Shift/| Lower|                   | Raise|Shift/| Bcksp| RCMD |Scroll|
  *                        |      |      | Enter| Space|      |                   |      | Space|      |      |      |
  *                        `----------------------------------'                   `----------------------------------'
  */
@@ -52,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,     KC_F3,
     CTL_ESC,  CTL_A,   OPT_S,   CMD_D,   SFT_F,   KC_G,                                            KC_H,    SFT_J,   CMD_K,   OPT_L,  CTL_SCLN, KC_BTN2,
     KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_QUOTE, KC_HYPR,    KC_HYPR, KC_GRV,  KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_BTN1,
-                                _______, KC_LCMD, OPT_ENT, SFT_SPC,  LOWER,      RAISE,   SFT_SPC, KC_BSPC, KC_RCMD, KC_BTN5
+                                KC_BTN5, KC_LCMD, OPT_ENT, SFT_SPC,  LOWER,      RAISE,   SFT_SPC, KC_BSPC, KC_RCMD, KC_BTN5
 ),
 
 /*
@@ -93,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT(
     KC_GRV,  _______, S(KC_7), S(KC_8), S(KC_9), KC_PIPE,                                        KC_VOLU, _______, KC_UP,   _______, _______, _______,
     KC_TILD, _______, S(KC_4), S(KC_5), S(KC_6), KC_BSLS,                                        KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, _______, CTL_QUOT,
-    KC_PIPE, _______, S(KC_1), S(KC_2), S(KC_3), KC_SLSH, _______, _______,    _______, _______, KC_MUTE, YTC,     KC_LT,   KC_GT,   _______, _______,
+    KC_PIPE, _______, S(KC_1), S(KC_2), S(KC_3), KC_SLSH, _______, _______,    _______, _______, KC_MUTE, YTC,     YTSD,    YTSU,    _______, _______,
                                _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
 ),
 
