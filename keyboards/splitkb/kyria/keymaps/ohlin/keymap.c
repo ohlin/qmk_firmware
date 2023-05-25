@@ -30,6 +30,8 @@ enum layers {
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define OPT_ENT  MT(MOD_LALT, KC_ENT)
 #define SFT_SPC  MT(MOD_LSFT, KC_SPC)
+#define RSE_SPC  LT(_RAISE, KC_SPC)
+#define LOW_SPC  LT(_LOWER, KC_SPC)
 #define YTC      LOPT(KC_X)
 #define YTSD     LSA(KC_LT)
 #define YTSU     LSA(KC_GT)
@@ -46,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.                   ,-------------+------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |  ' " | Hyper|                   | Hyper|  ` ~ |   N  |   M  | ,  < | . >  |  / ? | LClick |
  * `----------------------+------+------+------+------+------|                   |------+------+------+------+------+----------------------'
- *                        |Scroll| LCMD | LOPT/|Shift/| Lower|                   | Raise|Shift/| Bcksp| RCMD |Scroll|
+ *                        |Scroll| LCMD | LOPT/|Raise/| Lower|                   | Raise|Lower/| Bcksp| RCMD |Scroll|
  *                        |      |      | Enter| Space|      |                   |      | Space|      |      |      |
  *                        `----------------------------------'                   `----------------------------------'
  */
@@ -54,28 +56,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,     KC_F3,
     CTL_ESC,  CTL_A,   OPT_S,   CMD_D,   SFT_F,   KC_G,                                            KC_H,    SFT_J,   CMD_K,   OPT_L,  CTL_SCLN, KC_BTN2,
     KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_QUOTE, KC_HYPR,    KC_HYPR, KC_GRV,  KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_BTN1,
-                                KC_BTN5, KC_LCMD, OPT_ENT, SFT_SPC,  LOWER,      RAISE,   SFT_SPC, KC_BSPC, KC_RCMD, KC_BTN5
+                                KC_BTN5, KC_LCMD, OPT_ENT, RSE_SPC,  LOWER,      RAISE,   LOW_SPC, KC_BSPC, KC_RCMD, KC_BTN5
 ),
 
 /*
  * Lower Layer
  *
  * ,-----------------------------------------.                                               ,-------------------------------------------.
- * |      |      |  7   |  8   |  9   |  0   |                                               | VolUp|      |   ↑  |      |      |        |
+ * |      |      |  7   |  8   |  9   |  0   |                                               | ScrUp| ScrLt|MouseU| ScrRt|      |        |
  * |------|------+------+------+------+------+                                               |------+------+------+------+------+--------|
- * |      |      |  4   |  5   |  6   |  +   |                                               | VolDn|  ←   |   ↓  |   →  |      |        |
+ * |      |      |  4   |  5   |  6   |  +   |                                               | ScrDn|MouseL|MouseD|MouseR|      |        |
  * |------+------+------+------+------+------+-------------.                   ,-------------+------+------+------+------+------+--------|
- * |      |  0   |  1   |  2   |  3   |  -   |      |Shift |                   |      |      |VolMut|      |      |      |      |        |
+ * |      |  0   |  1   |  2   |  3   |  -   |      |Shift |                   |      |      |      |LftClk| RtClk|      |      |        |
  * `--------------------+------+------+------+------+------|                   |------+------+------+------+------+----------------------'
- *                      |      |  {   |  }   |      |xxxxxx|                   |      |      |      |      |      |
+ *                      |  (   |  {   |  }   |  )   |xxxxxx|                   |      |LftClk| RtClk|      |      |
  *                      |      |  [   |  ]   |      |xxxxxx|                   |      |      |      |      |      |
  *                      `----------------------------------'                   `----------------------------------'
  */
 [_LOWER] = LAYOUT(
-    _______, _______, KC_7,   KC_8,    KC_9,    KC_0,                                            KC_VOLU, _______, KC_UP,   _______, _______, _______,
-    _______, _______, KC_4,   KC_5,    KC_6,    KC_EQL,                                          KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-    _______, KC_0,    KC_1,   KC_2,    KC_3,    KC_MINUS, _______, KC_LSFT,    _______, _______, KC_MUTE, _______, _______, _______, _______, _______,
-                              _______, KC_LBRC, KC_RBRC,  _______, _______,    _______, _______, _______, _______, _______
+    _______, _______, KC_7,   KC_8,    KC_9,    KC_0,                                            KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, _______, _______,
+    _______, _______, KC_4,   KC_5,    KC_6,    KC_EQL,                                          KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,
+    _______, KC_0,    KC_1,   KC_2,    KC_3,    KC_MINUS, _______, KC_LSFT,    _______, _______, _______, KC_BTN1, KC_BTN2, _______, _______, _______,
+                              KC_LPRN, KC_LBRC, KC_RBRC,  KC_RPRN, _______,    _______, KC_BTN1, KC_BTN2, _______, _______
 ),
 
 /*
@@ -88,15 +90,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.                  ,-------------+------+------+------+------+------+--------|
  * |    |   |      |  !   |  @   |  #   |  /   |      |      |                  |      |      |VolMut| Opt+C|  <   |   >  |      |        |
  * `----------------------+------+------+------+------+------|                  |------+------+------+------+------+----------------------'
- *                        |      |      |      |      |      |                  |xxxxxx|      |      |      |      |
- *                        |      |      |      |      |      |                  |xxxxxx|      |      |      |      |
+ *                        |  (   |  {   |  }   |  )   |      |                  |xxxxxx|      |      |      |      |
+ *                        |      |  [   |  ]   |      |      |                  |xxxxxx|      |      |      |      |
  *                        `----------------------------------'                  `----------------------------------'
  */
 [_RAISE] = LAYOUT(
     KC_GRV,  _______, S(KC_7), S(KC_8), S(KC_9), KC_PIPE,                                        KC_VOLU, _______, KC_UP,   _______, _______, _______,
     KC_TILD, _______, S(KC_4), S(KC_5), S(KC_6), KC_BSLS,                                        KC_VOLD, KC_LEFT, KC_DOWN, KC_RGHT, _______, CTL_QUOT,
     KC_PIPE, _______, S(KC_1), S(KC_2), S(KC_3), KC_SLSH, _______, _______,    _______, _______, KC_MUTE, YTC,     YTSD,    YTSU,    _______, _______,
-                               _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______
+                               KC_LPRN, KC_LBRC, KC_RBRC, KC_RPRN, _______,    _______, _______, _______, _______, _______
 ),
 
 /*

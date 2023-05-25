@@ -1,7 +1,7 @@
 # @ohlin's Kyria Keymap
 ###### _This keymap is a work in progress._ 
 
-I am a Product Manager and QA Lead, not a developer, so I spend a lot of my time doing things that require a mouse, so one handed keyboard shortcuts are very useful to me.
+I am a Product Manager and QA Lead, not a developer, so I spend a lot of my time doing things that require a mouse, and a lot of time testing mobile apps with a phone in one hand and the other on the keyboard, so one-handed keyboard shortcuts are very useful to me.
 
 This keymap is used on a Mac in conjunction with a [Ploopy Nano](https://github.com/ploopyco/nano-trackball) trackball.
 
@@ -34,6 +34,10 @@ Remapping the Caps Lock key in Karabiner ensures I can still easily use these sh
 Initially, I tried using the NumLock scroll developed by [@zealws](https://github.com/zealws/qmk_firmware/commit/293d3c211d9e93c127b628ac9ef9e4cb201a01da) ([Reddit post here](https://old.reddit.com/r/ploopy/comments/nlvgkq/how_to_scroll_with_the_trackball_nano/)), but had some difficulty making it work on Mac. Since I was already using Karabiner for the Caps Lock to Hyper Switch, I decided to just use it for [mouse motion to scroll](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/other-types/mouse-motion-to-scroll/) as well by holding Mouse Button 5. Easily done.
 
 Despite not being able to make the NumLock scroll work, I did keep the [Ploopy Acceleration](https://github.com/zealws/qmk_firmware/commit/293d3c211d9e93c127b628ac9ef9e4cb201a01da#diff-d9cdae01e54acdc5c6ec6f6b28f48a676287d2f9cc2c9c3aaf63724fa625f520R90-R96) from @zealws' code, as it made using the Nano much easier when moving across the 3 monitors I typically use for work.
+
+## Mouse Keys
+Left and right click are mapped to multiple keys each on the raise layer to allow for either two-handed use (left thumb + right hand) or one-handed use (right thumb on lower/space). Two-handed use allows for a bit more versatility (click and drag using thumb and fingers) while one-handed use is a fallback that comes in handy whilst testing mobile apps with a phone in my left hand.
+
 ## OLED Logo
 I created my own OLED logo in [Figma](https://www.figma.com/), converted it with @javl's [image2cpp](https://javl.github.io/image2cpp), and cleaned up the result with @joric's [QMK Logo Editor](https://joric.github.io/qle/).
 ```
