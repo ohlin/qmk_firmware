@@ -1,4 +1,4 @@
-// Copyright 2022 Kevin Ohlin (@ohlin)
+// Copyright 2023 Kevin Ohlin (@ohlin)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
@@ -9,7 +9,6 @@ enum layers {
     _RAISE,
     _ADJUST
 };
-
 
 // Layers
 #define QWERTY   DF(_QWERTY)
@@ -28,10 +27,9 @@ enum layers {
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
-#define OPT_ENT  MT(MOD_LALT, KC_ENT)
+#define RSE_ENT  LT(_RAISE, KC_ENT)
+#define LWR_SPC  LT(_LOWER, KC_SPC)
 #define SFT_SPC  MT(MOD_LSFT, KC_SPC)
-#define RSE_SPC  LT(_RAISE, KC_SPC)
-#define LOW_SPC  LT(_LOWER, KC_SPC)
 #define YTC      LOPT(KC_X)
 #define YTSD     LSA(KC_LT)
 #define YTSU     LSA(KC_GT)
@@ -48,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.                   ,-------------+------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |  ' " | Hyper|                   | Hyper|  ` ~ |   N  |   M  | ,  < | . >  |  / ? | LClick |
  * `----------------------+------+------+------+------+------|                   |------+------+------+------+------+----------------------'
- *                        |Scroll| LCMD | LOPT/|Raise/| Lower|                   | Raise|Lower/| Bcksp| RCMD |Scroll|
+ *                        |Scroll| LCMD |Raise/|Shift/| Lower|                   | Raise|Lower/|Delete| RCMD |Scroll|
  *                        |      |      | Enter| Space|      |                   |      | Space|      |      |      |
  *                        `----------------------------------'                   `----------------------------------'
  */
@@ -56,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,     KC_F3,
     CTL_ESC,  CTL_A,   OPT_S,   CMD_D,   SFT_F,   KC_G,                                            KC_H,    SFT_J,   CMD_K,   OPT_L,  CTL_SCLN, KC_BTN2,
     KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_QUOTE, KC_HYPR,    KC_HYPR, KC_GRV,  KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_BTN1,
-                                KC_BTN5, KC_LCMD, OPT_ENT, RSE_SPC,  LOWER,      RAISE,   LOW_SPC, KC_BSPC, KC_RCMD, KC_BTN5
+                                KC_BTN5, KC_LCMD, RSE_ENT, SFT_SPC,  LOWER,      RAISE,   SFT_SPC, LWR_DEL, KC_RCMD, KC_BTN5
 ),
 
 /*

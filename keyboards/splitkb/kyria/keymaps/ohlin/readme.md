@@ -30,13 +30,25 @@ Karabiner Elements has been a part of my Mac workflow for years now, so when I s
 Years ago, following Brett Terpstra's article [_A useful Caps Lock key_](https://brettterpstra.com/2012/12/08/a-useful-caps-lock-key/), I swapped caps lock for hyper, then mapped a number of system-wide keyboard shortcuts to `Hyper` + `[key]`, such as launching apps using [Alfred](https://www.alfredapp.com/) workflows, resizing and moving windows using [Rectangle](https://github.com/rxhanson/Rectangle), and changing all of my montiors' brightness levels together using [Display Buddy](https://displaybuddy.app/). 
 
 Remapping the Caps Lock key in Karabiner ensures I can still easily use these shortcuts with the built-in keyboard on my laptop as well as with any QMK keyboard (where I use the `KC_HYPR` key code directly).
+
 ### Scrolling with the Ploopy Nano
 Initially, I tried using the NumLock scroll developed by [@zealws](https://github.com/zealws/qmk_firmware/commit/293d3c211d9e93c127b628ac9ef9e4cb201a01da) ([Reddit post here](https://old.reddit.com/r/ploopy/comments/nlvgkq/how_to_scroll_with_the_trackball_nano/)), but had some difficulty making it work on Mac. Since I was already using Karabiner for the Caps Lock to Hyper Switch, I decided to just use it for [mouse motion to scroll](https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/other-types/mouse-motion-to-scroll/) as well by holding Mouse Button 5. Easily done.
 
 Despite not being able to make the NumLock scroll work, I did keep the [Ploopy Acceleration](https://github.com/zealws/qmk_firmware/commit/293d3c211d9e93c127b628ac9ef9e4cb201a01da#diff-d9cdae01e54acdc5c6ec6f6b28f48a676287d2f9cc2c9c3aaf63724fa625f520R90-R96) from @zealws' code, as it made using the Nano much easier when moving across the 3 monitors I typically use for work.
 
-## Mouse Keys
+## Peculiarites and Personal Preferences
+### Mouse Keys
 Left and right click are mapped to multiple keys each on the raise layer to allow for either two-handed use (left thumb + right hand) or one-handed use (right thumb on lower/space). Two-handed use allows for a bit more versatility (click and drag using thumb and fingers) while one-handed use is a fallback that comes in handy whilst testing mobile apps with a phone in my left hand.
+
+### YouTube Controls
+- `YTC` = `⌥ + x` mapped to cinema mode on the _Enhancer for YouTube™_ extension
+- `YTSU` = `>` to speed up
+- `YTSD` = `<` to slow down
+
+### All Thumbs
+Q: With Raise/Enter on the left thumb, why not keep it symmetrical with Lower/Delete on the right? 
+
+A: I tend to hold down the delete key to repeat, and I use left thumb shift but never right, so I went with raise/enter and shift/space on the left and lower/space and delete on the right. That way I can trigger raise or lower with either thumb and still have delete on repeat.
 
 ## OLED Logo
 I created my own OLED logo in [Figma](https://www.figma.com/), converted it with @javl's [image2cpp](https://javl.github.io/image2cpp), and cleaned up the result with @joric's [QMK Logo Editor](https://joric.github.io/qle/).
